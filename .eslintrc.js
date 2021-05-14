@@ -20,5 +20,11 @@ module.exports = {
   rules: {
     semi: "error",
     quotes: ["error", "double"],
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto",
+      },
+    ],
   },
 };
