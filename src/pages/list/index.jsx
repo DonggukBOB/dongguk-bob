@@ -1,5 +1,11 @@
 import React from "react";
+import Header from "../../components/Header";
 
 export default function ListPage() {
-  return <div>List</div>;
+  return (
+    <>
+      <Header />
+      <div>List</div>
+    </>
+  );
 }
