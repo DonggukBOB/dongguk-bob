@@ -6,6 +6,7 @@ import RecommendPage from "./pages/recommend";
 import ListPage from "./pages/list";
 import MapPage from "./pages/map";
 import styled from "styled-components";
+import SlidingMenu from "./components/SlidingMenu";
 
 const Container = styled.div`
   max-width: 500px;
@@ -17,6 +18,7 @@ const Container = styled.div`
 function App() {
   return (
     <Container className="App">
+      <SlidingMenu />
       <Route path="/" exact component={MainPage} />
       <Route path="/recommend" component={RecommendPage} />
       <Route path="/list" component={ListPage} />
