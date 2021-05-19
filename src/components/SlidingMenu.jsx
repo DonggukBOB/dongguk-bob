@@ -33,13 +33,18 @@ const MenuItem = styled.div`
 `;
 
 export default function SlidingMenu() {
-  const closeMenu = () => {
-    $(".sliding-menu").hide();
+  const closeMenu = (event) => {
+    event.stopPropagation();
+    $(".sliding-menu-container").hide();
+  };
+
+  const stopPropagation = (event) => {
+    event.stopPropagation();
   };
 
   return (
-    <Container className="sliding-menu">
-      <Menu>
+    <Container className="sliding-menu-container" onClick={closeMenu}>
+      <Menu className="sliding-menu" onClick={stopPropagation}>
         <ExitButton
           className="fa fa-times"
           aria-hidden="true"

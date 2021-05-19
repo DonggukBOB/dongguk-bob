@@ -20,7 +20,7 @@ export default function Header() {
   };
 
   const openMenu = () => {
-    $(".sliding-menu").show();
+    $(".sliding-menu-container").show();
   };
 
   return (
