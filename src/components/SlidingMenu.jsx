@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import $ from "jquery";
 
-import { Link } from "react-router-dom";
+import SlidingMenuItem from "./SlidingMenuItem";
 
 const Container = styled.div`
   display: none;
@@ -29,13 +29,6 @@ const ExitButton = styled.i`
   margin-right: auto;
 `;
 
-const MenuItem = styled.div`
-  padding: 20px;
-  border-bottom: solid rgba(0, 0, 0, 0.25) 1px;
-  white-space: nowrap;
-  overflow: hidden;
-`;
-
 export default function SlidingMenu() {
   const closeMenu = (event) => {
     event.stopPropagation();
@@ -55,15 +48,9 @@ export default function SlidingMenu() {
           aria-hidden="true"
           onClick={closeMenu}
         />
-        <Link to="/recommend">
-          <MenuItem>추천받기</MenuItem>
-        </Link>
-        <Link to="/list">
-          <MenuItem>목록보기</MenuItem>
-        </Link>
-        <Link to="/map">
-          <MenuItem>지도보기</MenuItem>
-        </Link>
+        <SlidingMenuItem contents="추천받기" to="/recommend" />
+        <SlidingMenuItem contents="목록보기" to="/list" />
+        <SlidingMenuItem contents="지도보기" to="/map" />
       </Menu>
     </Container>
   );
