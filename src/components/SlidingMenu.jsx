@@ -50,15 +50,15 @@ export default function SlidingMenu() {
           aria-hidden="true"
           onClick={closeMenu}
         />
-        <MenuItem>
-          <Link to="/recommend">추천받기</Link>
-        </MenuItem>
-        <MenuItem>
-          <Link to="/list">목록보기</Link>
-        </MenuItem>
-        <MenuItem>
-          <Link to="/map">지도보기</Link>
-        </MenuItem>
+        <Link to="/recommend">
+          <MenuItem>추천받기</MenuItem>
+        </Link>
+        <Link to="/list">
+          <MenuItem>목록보기</MenuItem>
+        </Link>
+        <Link to="/map">
+          <MenuItem>지도보기</MenuItem>
+        </Link>
       </Menu>
     </Container>
   );
