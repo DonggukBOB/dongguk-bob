@@ -12,6 +12,7 @@ const Item = styled.div`
 
 export default function SlidingMenuItem({ contents, to }) {
   const history = useHistory();
+
   const link = () => {
     history.push(to);
     $(".sliding-menu").animate({ width: "toggle" });
