@@ -21,6 +21,7 @@ export default function Header() {
 
   const openMenu = () => {
     $(".sliding-menu-container").show();
+    $(".sliding-menu").animate({ width: "toggle" });
   };
 
   return (

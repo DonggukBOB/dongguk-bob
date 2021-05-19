@@ -17,7 +17,7 @@ const Container = styled.div`
 
 const Menu = styled.div`
   float: right;
-  display: flex;
+  display: none;
   flex-direction: column;
   width: 45%;
   height: 100%;
@@ -31,12 +31,15 @@ const ExitButton = styled.i`
 const MenuItem = styled.div`
   padding: 20px;
   border-bottom: solid rgba(0, 0, 0, 0.25) 1px;
+  white-space: nowrap;
+  overflow: hidden;
 `;
 
 export default function SlidingMenu() {
   const closeMenu = (event) => {
     event.stopPropagation();
-    $(".sliding-menu-container").hide();
+    $(".sliding-menu").animate({ width: "toggle" });
+    setTimeout(() => $(".sliding-menu-container").hide(), 400);
   };
 
   const stopPropagation = (event) => {
