@@ -11,7 +11,7 @@ const Container = styled.div`
   background-color: rgba(0, 0, 0, 0.25);
 `;
 
-const Menu = styled.ul`
+const Menu = styled.div`
   float: right;
   display: flex;
   flex-direction: column;
@@ -20,8 +20,9 @@ const Menu = styled.ul`
   background: white;
 `;
 
-const MenuItem = styled.li`
-  list-style: none;
+const MenuItem = styled.div`
+  padding: 20px;
+  border-bottom: solid rgba(0, 0, 0, 0.25) 1px;
 `;
 
 export default function SlidingMenu() {
