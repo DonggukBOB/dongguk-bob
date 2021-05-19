@@ -5,6 +5,7 @@ import $ from "jquery";
 import { Link } from "react-router-dom";
 
 const Container = styled.div`
+  display: none;
   z-index: 9999;
   position: absolute;
   top: 0;
