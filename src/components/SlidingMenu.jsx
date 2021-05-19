@@ -26,6 +26,7 @@ const Menu = styled.div`
 
 const ExitButton = styled.i`
   padding: 20px;
+  margin-right: auto;
 `;
 
 const MenuItem = styled.div`
