@@ -1,31 +1,35 @@
 import React from "react";
 import imgMain from "../../assets/imgMain.jpg";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 
 const Container = styled.div`
-  text-align: center;
-  font-size: 16px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 10%;
+`;
+
+const ButtonWrap = styled.div`
+  width: 100%;
+  text-align: center;
 `;
 
 const Button = styled.button`
   border-radius: 5px;
   background-color: #f29300;
   border: none;
-  font-size: 1.5em;
-  margin: 3%;
+  font-size: 1.2em;
+  margin: 10px;
   color: white;
+  white-space: nowrap;
+  padding: 5%;
 `;
 
 const Image = styled.img`
   width: 100%;
-  height: 100%;
-  margin: auto;
+  height: 55%;
 `;
 
 const Title = styled.h1`
@@ -34,22 +38,22 @@ const Title = styled.h1`
 `;
 
 const SubTitle = styled.h3`
-  font-size: 1em;
+  font-size: 0.9em;
 `;
 
 export default function MainPage() {
+  const history = useHistory();
+
   return (
     <Container>
       <SubTitle>지친 당신의 허기를 달래줄</SubTitle>
       <SubTitle>든-든한</SubTitle>
       <Title>동국밥</Title>
       <Image src={imgMain} />
-      <Link to="/recommend">
-        <Button>메뉴 추천</Button>
-      </Link>
-      <Link to="/list">
-        <Button>맛집 목록</Button>
-      </Link>
+      <ButtonWrap>
+        <Button onClick={() => history.push("/recommend")}>메뉴 추천</Button>
+        <Button onClick={() => history.push("/list")}>맛집 목록</Button>
+      </ButtonWrap>
     </Container>
   );
 }
