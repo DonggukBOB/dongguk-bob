@@ -19,7 +19,7 @@ const Menu = styled.div`
   float: right;
   display: none;
   flex-direction: column;
-  width: 45%;
+  width: 55%;
   height: 100%;
   background: white;
 `;
