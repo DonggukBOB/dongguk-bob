@@ -1,17 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import Header from "../../components/Header";
-import DecoImage from "./DecoImage";
-import BigButton from "./BigButton";
+import RecommendButton from "./RecommendButton";
 
 const Container = styled.div`
-  border: 5px solid #ffcc5c;
-  display: flex;
-  align-items: flex-start;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
+  aling-items: center;
+  margin: auto;
 `;
 
 export default function RecommendPage() {
@@ -19,15 +13,7 @@ export default function RecommendPage() {
     <>
       <Header />
       <Container>
-        <DecoImage />
-        <DecoImage />
-        <DecoImage />
-      </Container>
-      <BigButton />
-      <Container>
-        <DecoImage />
-        <DecoImage />
-        <DecoImage />
+        <RecommendButton />
       </Container>
     </>
   );
