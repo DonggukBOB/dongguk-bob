@@ -14,10 +14,10 @@ const Button = styled.button`
   border-radius: 1em;
   background-color: #fbc402;
   margin: 0 auto;
-  width: 5em;
-  height: 5em;
-  margin-left: -2.5em;
-  margin-top: -2.5em;
+  width: 4em;
+  height: 4em;
+  margin-left: -2em;
+  margin-top: -2em;
   font-size: 5em;
 `;
 
