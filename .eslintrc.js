@@ -26,5 +26,6 @@ module.exports = {
         endOfLine: "auto",
       },
     ],
+    "react/prop-types": 0,
   },
 };
