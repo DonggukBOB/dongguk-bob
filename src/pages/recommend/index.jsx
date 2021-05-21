@@ -10,13 +10,14 @@ const Container = styled.div`
 
 const Button = styled.button`
   margin: auto;
-  width: 2.3em;
-  height: 2.3em;
-  border: 10px solid #ea5413;
-  border-radius: 16px;
+  width: 2.5em;
+  height: 2.5em;
+  border: 0;
+  border-radius: 50%;
   background-color: #fbc402;
-  font-size: 7.2em;
+  font-size: 6em;
   font-weight: bold;
+  box-shadow: 5px 5px 5px 5px gray;
 `;
 
 export default function RecommendPage() {
