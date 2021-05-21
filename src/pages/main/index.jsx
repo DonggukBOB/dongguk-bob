@@ -29,7 +29,6 @@ const Button = styled.button`
 
 const Image = styled.img`
   width: 100%;
-  height: 55%;
 `;
 
 const Title = styled.h1`
