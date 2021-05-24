@@ -3,23 +3,36 @@ import Header from "../../components/Header";
 import styled from "styled-components";
 import places from "../../data/places";
 
-const FilterSection = styled.div`
-  height: 10%;
+const Contents = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background: grey;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
 
-const List = styled.ul`
-  height: 90%;
-  width: 100%;
+const Filter = styled.div`
+  white-space: nowrap;
+  overflow-x: auto;
+  padding: 0 15px 10px;
+  border-bottom: 1px solid #dbdbdb;
+`;
+
+const Button = styled.button`
+  display: inline-block;
+  margin: 10px 8px 0 8px;
+  padding: 0 20px;
+  font-size: 0.875rem;
+  line-height: 32px;
+  color: #6a6a6a;
+  letter-spacing: -0.1em;
+  border: 1px solid #cbcbcb;
+  border-radius: 50px;
+  background-color: #fff;
 `;
 
 const ListItme = styled.li`
   padding: 18px;
+  box-sizing: border-box;
   border-bottom: 1px solid #dbdbdb;
 `;
 
@@ -28,8 +41,6 @@ const Thumb = styled.div`
   overflow: hidden;
   background-size: cover;
   background-position: 50% 50%;
-  content: "";
-  width: 100%;
   padding-top: 42.85714%;
 `;
 
@@ -66,7 +77,7 @@ const Score = styled.span`
 
 const Address = styled.p`
   font-size: 0.75rem;
-  margin-top: 3px;
+  margin-top: 8px;
   color: #9b9b9b;
   line-height: 1.3em;
   overflow: hidden;
@@ -76,7 +87,7 @@ const Address = styled.p`
 `;
 
 const Review = styled.p`
-  margin-top: 8px;
+  margin-top: 10px;
   font-size: 0.875rem;
   line-height: 21px;
 `;
@@ -99,8 +110,18 @@ export default function ListPage() {
   return (
     <>
       <Header />
-      <FilterSection></FilterSection>
-      <List>{listItems}</List>
+      <Contents>
+        <Filter>
+          <Button>위치</Button>
+          <Button>가격</Button>
+          <Button>종류</Button>
+          <Button>종류</Button>
+          <Button>종류</Button>
+          <Button>종류</Button>
+          <Button>종류</Button>
+        </Filter>
+        <ul>{listItems}</ul>
+      </Contents>
     </>
   );
 }
