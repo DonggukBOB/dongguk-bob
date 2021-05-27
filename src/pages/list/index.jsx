@@ -10,7 +10,7 @@ const Contents = styled.div`
   overflow-x: hidden;
 `;
 
-const Filter = styled.div`
+const FilterHeader = styled.section`
   white-space: nowrap;
   overflow-x: auto;
   padding: 0 15px 10px;
@@ -95,15 +95,17 @@ const Review = styled.p`
 export default function ListPage() {
   const listItems = places.map((post) => (
     <ListItme key={post.name}>
-      <Thumb>
-        <Image src={post.photo} />
-      </Thumb>
-      <Info>
-        <Title>{post.name}</Title>
-        <Score>{post.score}/5</Score>
-        <Address>{post.address}</Address>
-        <Review>{post.comment}</Review>
-      </Info>
+      <a onClick={() => alert("1")}>
+        <Thumb>
+          <Image src={post.photo} />
+        </Thumb>
+        <Info>
+          <Title>{post.name}</Title>
+          <Score>{post.score}/5</Score>
+          <Address>{post.address}</Address>
+          <Review>{post.comment}</Review>
+        </Info>
+      </a>
     </ListItme>
   ));
 
@@ -111,15 +113,11 @@ export default function ListPage() {
     <>
       <Header />
       <Contents>
-        <Filter>
+        <FilterHeader>
           <Button>위치</Button>
           <Button>가격</Button>
           <Button>종류</Button>
-          <Button>종류</Button>
-          <Button>종류</Button>
-          <Button>종류</Button>
-          <Button>종류</Button>
-        </Filter>
+        </FilterHeader>
         <ul>{listItems}</ul>
       </Contents>
     </>
