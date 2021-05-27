@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../../components/Header";
+import Filter from "../../components/Filter";
 import styled from "styled-components";
 import places from "../../data/places";
 
@@ -8,26 +9,6 @@ const Contents = styled.div`
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-`;
-
-const FilterHeader = styled.section`
-  white-space: nowrap;
-  overflow-x: auto;
-  padding: 0 15px 10px;
-  border-bottom: 1px solid #dbdbdb;
-`;
-
-const Button = styled.button`
-  display: inline-block;
-  margin: 10px 8px 0 8px;
-  padding: 0 20px;
-  font-size: 0.875rem;
-  line-height: 32px;
-  color: #6a6a6a;
-  letter-spacing: -0.1em;
-  border: 1px solid #cbcbcb;
-  border-radius: 50px;
-  background-color: #fff;
 `;
 
 const ListItme = styled.li`
@@ -112,12 +93,8 @@ export default function ListPage() {
   return (
     <>
       <Header />
+      <Filter />
       <Contents>
-        <FilterHeader>
-          <Button>위치</Button>
-          <Button>가격</Button>
-          <Button>종류</Button>
-        </FilterHeader>
         <ul>{listItems}</ul>
       </Contents>
     </>
