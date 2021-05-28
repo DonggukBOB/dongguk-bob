@@ -13,7 +13,8 @@ const Container = styled.div`
   height: 100vh;
   margin: auto;
   box-shadow: 0 0 10px 2px gray;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
 
 function App() {

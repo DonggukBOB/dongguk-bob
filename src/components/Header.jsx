@@ -5,7 +5,6 @@ import $ from "jquery";
 
 const Container = styled.header`
   display: flex;
-  margin-bottom: 10px;
   padding: 10px 20px;
   justify-content: space-between;
   align-items: center;
