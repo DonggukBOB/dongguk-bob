@@ -7,7 +7,11 @@ export default function ListPage() {
   return (
     <>
       <Header />
-      <ul>{places.map((place) => ListItem(place))}</ul>
+      <ul>
+        {places.map((place) => (
+          <ListItem key={place.name} place={place} />
+        ))}
+      </ul>
     </>
   );
 }

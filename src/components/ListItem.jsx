@@ -18,11 +18,11 @@ const Info = styled.div`
 
 const Title = styled.span`
   font-size: 1.2em;
+  font-weight: bold;
 `;
 
 const Score = styled.span`
   color: #ff792a;
-  font-size: 1.3em;
   margin-left: 8px;
 `;
 
@@ -37,13 +37,13 @@ const Review = styled.p`
   font-size: 0.875rem;
 `;
 
-export default function ListItem(place) {
+export default function ListItem({ place }) {
   return (
-    <Container key={place.name}>
+    <Container>
       <Thumbnail src={place.photo} />
       <Info>
         <Title>{place.name}</Title>
-        <Score>{place.score}/5</Score>
+        <Score>★ {place.score}/5</Score>
         <Address>{place.address}</Address>
         <Review>{place.comment}</Review>
       </Info>
