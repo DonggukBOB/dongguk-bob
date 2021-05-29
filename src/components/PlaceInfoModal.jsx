@@ -30,7 +30,7 @@ const Modal = styled.div`
 const PlaceInfoContainer = styled.article`
   display: flex;
   flex-direction: column;
-  margin: 20px auto;
+  margin: 30px auto;
   width: 90%;
   height: 95%;
   overflow-y: scroll;
@@ -90,6 +90,10 @@ const InfoContainer = styled.div`
 const InfoTitle = styled.div`
   margin-bottom: 10px;
   color: #9b9b9b;
+`;
+
+const Spacer = styled.div`
+  min-height: 5%;
 `;
 
 const RetryButton = styled.button`
@@ -184,6 +188,7 @@ export default function PlaceInfoModal({ place, retry, onRetry }) {
             <InfoTitle>한줄평</InfoTitle>
             <span>{place.comment}</span>
           </InfoContainer>
+          <Spacer />
         </PlaceInfoContainer>
       </Modal>
       <RetryButton
