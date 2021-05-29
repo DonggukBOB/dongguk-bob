@@ -31,7 +31,7 @@ const PlaceInfoContainer = styled.article`
   display: flex;
   flex-direction: column;
   margin: 30px auto;
-  width: 90%;
+  width: 85%;
   height: 95%;
   overflow-y: scroll;
 `;
