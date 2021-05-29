@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import $ from "jquery";
 
 const Container = styled.li`
   padding: 18px;
@@ -37,9 +38,14 @@ const Review = styled.p`
   font-size: 0.875rem;
 `;
 
-export default function ListItem({ place }) {
+export default function ListItem({ place, onOpenModal }) {
+  const openModal = () => {
+    onOpenModal(place);
+    $(".place-info-modal").show();
+  };
+
   return (
-    <Container>
+    <Container onClick={openModal}>
       <Thumbnail src={place.photo} />
       <Info>
         <Title>{place.name}</Title>

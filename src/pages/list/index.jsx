@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import Header from "../../components/Header";
 import ListItem from "./ListItem";
 import PlaceInfoModal from "../../components/PlaceInfoModal";
@@ -20,7 +21,7 @@ export default function ListPage() {
           <ListItem
             key={place.name}
             place={place}
-            onClick={() => openInfoModal(place)}
+            onOpenModal={openInfoModal}
           />
         ))}
       </ul>

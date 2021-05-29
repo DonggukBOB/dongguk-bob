@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import $ from "jquery";
 
 import naverMapImg from "../assets/map-naver.png";
 import kakaoMapImg from "../assets/map-kakao.png";
 
 const Container = styled.div`
-  display: block;
+  display: none;
   z-index: 9999;
   position: absolute;
   top: 0;
@@ -51,7 +52,7 @@ const Score = styled.span`
 const FoodImg = styled.img`
   margin: 10px 0;
   width: 100%;
-  height: 25vh;
+  height: 30vh;
   object-fit: cover;
 `;
 
@@ -90,12 +91,25 @@ const InfoTitle = styled.div`
 `;
 
 export default function PlaceInfoModal({ place }) {
+  const closeModal = (event) => {
+    event.stopPropagation();
+    $(".place-info-modal").hide();
+  };
+
+  const stopPropagation = (event) => {
+    event.stopPropagation();
+  };
+
   return (
-    <Container>
-      <ModalContainer>
+    <Container className="place-info-modal" onClick={closeModal}>
+      <ModalContainer onClick={stopPropagation}>
         <PlaceInfo>
           <div>
-            <ExitButton className="fa fa-times fa-2x" aria-hidden="true" />
+            <ExitButton
+              className="fa fa-times fa-2x"
+              aria-hidden="true"
+              onClick={closeModal}
+            />
             <Title>{place.name}</Title>
             <span className="gray">{place.category}</span>
             <Score>★ {place.score}/5</Score>
