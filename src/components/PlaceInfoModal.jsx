@@ -136,13 +136,14 @@ export default function PlaceInfoModal({ place, retry, onRetry }) {
 
   const retryRecommend = (event) => {
     event.stopPropagation();
+    $(".place-info-container").scrollTop(0);
     onRetry();
   };
 
   return (
     <Container className="place-info-modal-container" onClick={closeModal}>
       <Modal className="place-info-modal" onClick={stopPropagation}>
-        <PlaceInfoContainer>
+        <PlaceInfoContainer className="place-info-container">
           <div>
             <ExitButton
               className="fa fa-times fa-2x"
