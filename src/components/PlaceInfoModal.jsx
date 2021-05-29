@@ -17,6 +17,7 @@ const Container = styled.div`
 `;
 
 const Modal = styled.div`
+  display: none;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -138,10 +139,12 @@ const PreviousButton = styled.button`
 
 export const openPlaceInfoModal = () => {
   $(".place-info-modal-container").show();
+  $(".place-info-modal").animate({ height: "show" });
 };
 
 export const closePlaceInfoModal = () => {
-  $(".place-info-modal-container").hide();
+  $(".place-info-modal").animate({ height: "hide" });
+  setTimeout(() => $(".place-info-modal-container").hide(), 400);
 };
 
 export default function PlaceInfoModal({
