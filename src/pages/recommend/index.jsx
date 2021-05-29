@@ -11,14 +11,14 @@ const Container = styled.div`
   flex-direction: column;
 `;
 
-const Button = styled.button`
+const RecommendButton = styled.button`
   margin: auto;
   width: 2.5em;
   height: 2.5em;
-  border: 0;
+  border: none;
   border-radius: 50%;
   background-color: #fbc402;
-  font-size: 6em;
+  font-size: 6rem;
   font-weight: bold;
   box-shadow: 5px 5px 5px 5px gray;
 `;
@@ -26,16 +26,24 @@ const Button = styled.button`
 export default function RecommendPage() {
   const [place, setPlace] = useState(places[0]);
 
+  const recommendPlace = () => {
+    return places[Math.floor(Math.random() * places.length)];
+  };
+
   const openPlaceInfoModal = () => {
-    setPlace(places[0]);
+    setPlace(recommendPlace());
     $(".place-info-modal").show();
+  };
+
+  const retryRecommend = () => {
+    setPlace(recommendPlace());
   };
 
   return (
     <Container>
       <Header />
-      <Button onClick={openPlaceInfoModal}>Go!</Button>
-      <PlaceInfoModal place={place} />
+      <RecommendButton onClick={openPlaceInfoModal}>Go!</RecommendButton>
+      <PlaceInfoModal place={place} retry onRetry={retryRecommend} />
     </Container>
   );
 }

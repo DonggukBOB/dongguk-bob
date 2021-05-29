@@ -90,7 +90,22 @@ const InfoTitle = styled.div`
   color: #9b9b9b;
 `;
 
-export default function PlaceInfoModal({ place }) {
+const RetryButton = styled.button`
+  display: ${({ retry }) => (retry ? "block" : "none")};
+  position: absolute;
+  bottom: 50px;
+  right: 30px;
+  width: 100px;
+  height: 100px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  background-color: #fbc402;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 1px 1px 5px 1px gray;
+`;
+
+export default function PlaceInfoModal({ place, retry, onRetry }) {
   const closeModal = (event) => {
     event.stopPropagation();
     $(".place-info-modal").hide();
@@ -98,6 +113,11 @@ export default function PlaceInfoModal({ place }) {
 
   const stopPropagation = (event) => {
     event.stopPropagation();
+  };
+
+  const retryRecommend = (event) => {
+    event.stopPropagation();
+    onRetry();
   };
 
   return (
@@ -151,6 +171,13 @@ export default function PlaceInfoModal({ place }) {
           </InfoBox>
         </PlaceInfo>
       </ModalContainer>
+      <RetryButton
+        className="retry-button"
+        retry={retry}
+        onClick={retryRecommend}
+      >
+        다시 추천
+      </RetryButton>
     </Container>
   );
 }
