@@ -33,6 +33,7 @@ const PlaceInfoContainer = styled.article`
   margin: 20px auto;
   width: 90%;
   height: 95%;
+  overflow-y: scroll;
 `;
 
 const ExitButton = styled.i`
