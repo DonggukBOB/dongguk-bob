@@ -16,7 +16,7 @@ const Container = styled.div`
   background-color: rgba(0, 0, 0, 0.25);
 `;
 
-const ModalContainer = styled.div`
+const Modal = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -110,10 +110,18 @@ const RetryButton = styled.button`
   }
 `;
 
+export const openPlaceInfoModal = () => {
+  $(".place-info-modal-container").show();
+};
+
+export const closePlaceInfoModal = () => {
+  $(".place-info-modal-container").hide();
+};
+
 export default function PlaceInfoModal({ place, retry, onRetry }) {
   const closeModal = (event) => {
     event.stopPropagation();
-    $(".place-info-modal").hide();
+    closePlaceInfoModal();
   };
 
   const stopPropagation = (event) => {
@@ -126,8 +134,8 @@ export default function PlaceInfoModal({ place, retry, onRetry }) {
   };
 
   return (
-    <Container className="place-info-modal" onClick={closeModal}>
-      <ModalContainer onClick={stopPropagation}>
+    <Container className="place-info-modal-container" onClick={closeModal}>
+      <Modal className="place-info-modal" onClick={stopPropagation}>
         <PlaceInfoContainer>
           <div>
             <ExitButton
@@ -175,7 +183,7 @@ export default function PlaceInfoModal({ place, retry, onRetry }) {
             <span>{place.comment}</span>
           </InfoContainer>
         </PlaceInfoContainer>
-      </ModalContainer>
+      </Modal>
       <RetryButton
         className="retry-button"
         retry={retry}

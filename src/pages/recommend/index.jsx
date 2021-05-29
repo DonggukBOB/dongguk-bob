@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+
 import Header from "../../components/Header";
+import PlaceInfoModal, {
+  openPlaceInfoModal,
+} from "../../components/PlaceInfoModal";
+
 import places from "../../data/places";
-import PlaceInfoModal from "../../components/PlaceInfoModal";
-import $ from "jquery";
 
 const Container = styled.div`
   display: flex;
@@ -30,9 +33,9 @@ export default function RecommendPage() {
     return places[Math.floor(Math.random() * places.length)];
   };
 
-  const openPlaceInfoModal = () => {
+  const openModal = () => {
     setPlace(recommendPlace());
-    $(".place-info-modal").show();
+    openPlaceInfoModal();
   };
 
   const retryRecommend = () => {
@@ -42,7 +45,7 @@ export default function RecommendPage() {
   return (
     <Container>
       <Header />
-      <RecommendButton onClick={openPlaceInfoModal}>Go!</RecommendButton>
+      <RecommendButton onClick={openModal}>Go!</RecommendButton>
       <PlaceInfoModal place={place} retry onRetry={retryRecommend} />
     </Container>
   );

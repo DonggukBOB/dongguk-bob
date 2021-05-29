@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import $ from "jquery";
+import { openPlaceInfoModal } from "../../components/PlaceInfoModal";
 
 const Container = styled.li`
   padding: 18px;
@@ -14,7 +14,7 @@ const Thumbnail = styled.img`
 `;
 
 const Info = styled.div`
-  padding: 12px 7px 16px 0px;
+  padding: 12px 7px 16px 0;
 `;
 
 const Title = styled.span`
@@ -41,7 +41,7 @@ const Review = styled.p`
 export default function ListItem({ place, onOpenModal }) {
   const openModal = () => {
     onOpenModal(place);
-    $(".place-info-modal").show();
+    openPlaceInfoModal();
   };
 
   return (
