@@ -27,7 +27,7 @@ const ModalContainer = styled.div`
   border-radius: 20px;
 `;
 
-const PlaceInfo = styled.article`
+const PlaceInfoContainer = styled.article`
   display: flex;
   flex-direction: column;
   margin: 20px auto;
@@ -56,7 +56,7 @@ const FoodImg = styled.img`
   object-fit: cover;
 `;
 
-const ButtonBox = styled.div`
+const ButtonContainer = styled.div`
   display: flex;
   margin: 10px 0;
   padding: 0 15px 20px;
@@ -79,7 +79,7 @@ const MapImg = styled.img`
   width: 100%;
 `;
 
-const InfoBox = styled.div`
+const InfoContainer = styled.div`
   margin: 10px 0;
   padding: 0 15px 10px;
   border-bottom: 1px solid #9b9b9b;
@@ -128,7 +128,7 @@ export default function PlaceInfoModal({ place, retry, onRetry }) {
   return (
     <Container className="place-info-modal" onClick={closeModal}>
       <ModalContainer onClick={stopPropagation}>
-        <PlaceInfo>
+        <PlaceInfoContainer>
           <div>
             <ExitButton
               className="fa fa-times fa-2x"
@@ -141,7 +141,7 @@ export default function PlaceInfoModal({ place, retry, onRetry }) {
             <div className="gray">{place.address}</div>
           </div>
           <FoodImg src={place.photo} />
-          <ButtonBox>
+          <ButtonContainer>
             <LinkContainer href={place.naver} target="_blank" rel="noreferrer">
               <ImgContainer>
                 <MapImg src={naverMapImg} />
@@ -164,17 +164,17 @@ export default function PlaceInfoModal({ place, retry, onRetry }) {
               </ImgContainer>
               <div>전화</div>
             </LinkContainer>
-          </ButtonBox>
-          <InfoBox>
+          </ButtonContainer>
+          <InfoContainer>
             <InfoTitle>메뉴</InfoTitle>
             <span>{place.menu}</span>
             <span className="float-right">∙∙∙ {place.price}원</span>
-          </InfoBox>
-          <InfoBox>
+          </InfoContainer>
+          <InfoContainer>
             <InfoTitle>한줄평</InfoTitle>
             <span>{place.comment}</span>
-          </InfoBox>
-        </PlaceInfo>
+          </InfoContainer>
+        </PlaceInfoContainer>
       </ModalContainer>
       <RetryButton
         className="retry-button"
