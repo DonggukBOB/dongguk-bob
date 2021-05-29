@@ -116,6 +116,26 @@ const RetryButton = styled.button`
   }
 `;
 
+const PreviousButton = styled.button`
+  display: ${({ retry }) => (retry ? "block" : "none")};
+  position: absolute;
+  bottom: 5%;
+  right: calc(5% + 110px);
+  width: 50px;
+  height: 50px;
+  font-size: 1.025rem;
+  font-weight: bold;
+  background-color: #fbc402;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 5px 5px 5px 1px gray;
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 4px 4px 4px 1px gray;
+  }
+`;
+
 export const openPlaceInfoModal = () => {
   $(".place-info-modal-container").show();
 };
@@ -124,7 +144,7 @@ export const closePlaceInfoModal = () => {
   $(".place-info-modal-container").hide();
 };
 
-export default function PlaceInfoModal({ place, retry, onRetry }) {
+export default function PlaceInfoModal({ place, retry, onRetry, onBackPlace }) {
   const closeModal = (event) => {
     event.stopPropagation();
     closePlaceInfoModal();
@@ -138,6 +158,12 @@ export default function PlaceInfoModal({ place, retry, onRetry }) {
     event.stopPropagation();
     $(".place-info-container").scrollTop(0);
     onRetry();
+  };
+
+  const backPlace = (event) => {
+    event.stopPropagation();
+    $(".place-info-container").scrollTop(0);
+    onBackPlace();
   };
 
   return (
@@ -192,11 +218,10 @@ export default function PlaceInfoModal({ place, retry, onRetry }) {
           <Spacer />
         </PlaceInfoContainer>
       </Modal>
-      <RetryButton
-        className="retry-button"
-        retry={retry}
-        onClick={retryRecommend}
-      >
+      <PreviousButton retry={retry} onClick={backPlace}>
+        이전
+      </PreviousButton>
+      <RetryButton retry={retry} onClick={retryRecommend}>
         다시 추천
       </RetryButton>
     </Container>

@@ -28,6 +28,7 @@ const RecommendButton = styled.button`
 
 export default function RecommendPage() {
   const [place, setPlace] = useState(places[0]);
+  const [previousPlaces, setPreviousPlaces] = useState([]);
 
   const recommendPlace = () => {
     return places[Math.floor(Math.random() * places.length)];
@@ -39,14 +40,29 @@ export default function RecommendPage() {
   };
 
   const retryRecommend = () => {
+    previousPlaces.push(place);
+    setPreviousPlaces(previousPlaces);
     setPlace(recommendPlace());
+  };
+
+  const backPlace = () => {
+    const previousPlace = previousPlaces.pop();
+    if (!previousPlace) {
+      return;
+    }
+    setPlace(previousPlace);
   };
 
   return (
     <Container>
       <Header />
       <RecommendButton onClick={openModal}>Go!</RecommendButton>
-      <PlaceInfoModal place={place} retry onRetry={retryRecommend} />
+      <PlaceInfoModal
+        place={place}
+        retry
+        onRetry={retryRecommend}
+        onBackPlace={backPlace}
+      />
     </Container>
   );
 }
