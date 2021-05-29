@@ -32,6 +32,7 @@ const PlaceInfoContainer = styled.article`
   flex-direction: column;
   margin: 20px auto;
   width: 90%;
+  height: 95%;
 `;
 
 const ExitButton = styled.i`
@@ -93,8 +94,8 @@ const InfoTitle = styled.div`
 const RetryButton = styled.button`
   display: ${({ retry }) => (retry ? "block" : "none")};
   position: absolute;
-  bottom: 50px;
-  right: 30px;
+  bottom: 2.5%;
+  right: 5%;
   width: 100px;
   height: 100px;
   font-size: 1.25rem;
