@@ -59,7 +59,7 @@ const FoodImg = styled.img`
 const ButtonBox = styled.div`
   display: flex;
   margin: 10px 0;
-  padding: 0 10px 20px;
+  padding: 0 15px 20px;
   justify-content: space-between;
   text-align: center;
   border-bottom: 1px solid #9b9b9b;
@@ -81,7 +81,7 @@ const MapImg = styled.img`
 
 const InfoBox = styled.div`
   margin: 10px 0;
-  padding-bottom: 10px;
+  padding: 0 15px 10px;
   border-bottom: 1px solid #9b9b9b;
 `;
 
