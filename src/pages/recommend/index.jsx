@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Header from "../../components/Header";
+import places from "../../data/places";
+import PlaceInfoModal from "../../components/PlaceInfoModal";
+import $ from "jquery";
 
 const Container = styled.div`
   display: flex;
@@ -21,10 +24,18 @@ const Button = styled.button`
 `;
 
 export default function RecommendPage() {
+  const [place, setPlace] = useState(places[0]);
+
+  const openPlaceInfoModal = () => {
+    setPlace(places[0]);
+    $(".place-info-modal").show();
+  };
+
   return (
     <Container>
       <Header />
-      <Button onClick={() => alert("추천 완료!")}>Go!</Button>
+      <Button onClick={openPlaceInfoModal}>Go!</Button>
+      <PlaceInfoModal place={place} />
     </Container>
   );
 }
