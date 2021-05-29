@@ -7,3 +7,11 @@ a {
   text-decoration: none;
   color: black;
 }
+
+.gray {
+ color: #9b9b9b;
+}
+
+.float-right {
+  float: right;
+}
