@@ -59,7 +59,7 @@ export default function RecommendPage() {
       <RecommendButton onClick={openModal}>Go!</RecommendButton>
       <PlaceInfoModal
         place={place}
-        retry
+        recommend
         onRetry={retryRecommend}
         onBackPlace={backPlace}
       />

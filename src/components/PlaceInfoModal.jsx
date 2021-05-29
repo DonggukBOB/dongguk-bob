@@ -97,7 +97,7 @@ const Spacer = styled.div`
 `;
 
 const RetryButton = styled.button`
-  display: ${({ retry }) => (retry ? "block" : "none")};
+  display: ${({ recommend }) => (recommend ? "block" : "none")};
   position: absolute;
   bottom: 2.5%;
   right: 5%;
@@ -117,7 +117,7 @@ const RetryButton = styled.button`
 `;
 
 const PreviousButton = styled.button`
-  display: ${({ retry }) => (retry ? "block" : "none")};
+  display: ${({ recommend }) => (recommend ? "block" : "none")};
   position: absolute;
   bottom: 5%;
   right: calc(5% + 110px);
@@ -144,7 +144,12 @@ export const closePlaceInfoModal = () => {
   $(".place-info-modal-container").hide();
 };
 
-export default function PlaceInfoModal({ place, retry, onRetry, onBackPlace }) {
+export default function PlaceInfoModal({
+  place,
+  recommend,
+  onRetry,
+  onBackPlace,
+}) {
   const closeModal = (event) => {
     event.stopPropagation();
     closePlaceInfoModal();
@@ -218,10 +223,10 @@ export default function PlaceInfoModal({ place, retry, onRetry, onBackPlace }) {
           <Spacer />
         </PlaceInfoContainer>
       </Modal>
-      <PreviousButton retry={retry} onClick={backPlace}>
+      <PreviousButton recommend={recommend} onClick={backPlace}>
         이전
       </PreviousButton>
-      <RetryButton retry={retry} onClick={retryRecommend}>
+      <RetryButton recommend={recommend} onClick={retryRecommend}>
         다시 추천
       </RetryButton>
     </Container>
