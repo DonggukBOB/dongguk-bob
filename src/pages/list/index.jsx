@@ -1,6 +1,8 @@
 import React from "react";
 import Header from "../../components/Header";
 import ListItem from "./ListItem";
+import PlaceInfoModal from "../../components/PlaceInfoModal";
+
 import places from "../../data/places";
 
 export default function ListPage() {
@@ -12,6 +14,7 @@ export default function ListPage() {
           <ListItem key={place.name} place={place} />
         ))}
       </ul>
+      <PlaceInfoModal />
     </>
   );
 }
