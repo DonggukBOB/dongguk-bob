@@ -102,7 +102,12 @@ const RetryButton = styled.button`
   background-color: #fbc402;
   border: none;
   border-radius: 50px;
-  box-shadow: 1px 1px 5px 1px gray;
+  box-shadow: 5px 5px 5px 1px gray;
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 4px 4px 4px 1px gray;
+  }
 `;
 
 export default function PlaceInfoModal({ place, retry, onRetry }) {
