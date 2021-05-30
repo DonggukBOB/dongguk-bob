@@ -44,12 +44,13 @@ const ExitButton = styled.i`
 const Title = styled.h1`
   display: inline;
   margin-right: 10px;
+  white-space: nowrap;
 `;
 
 const Score = styled.span`
-  margin-left: 10px;
   font-size: 1.25rem;
   color: #ff792a;
+  white-space: nowrap;
 `;
 
 const FoodImg = styled.img`
@@ -185,7 +186,6 @@ export default function PlaceInfoModal({
               onClick={closeModal}
             />
             <Title>{place.name}</Title>
-            <span className="gray">{place.category}</span>
             <Score>★ {place.score}/5</Score>
             <div className="gray">{place.address}</div>
           </div>
