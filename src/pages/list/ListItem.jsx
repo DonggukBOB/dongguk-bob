@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { openPlaceInfoModal } from "../../components/PlaceInfoModal";
 
 const Container = styled.li`
   padding: 18px;
@@ -13,7 +14,7 @@ const Thumbnail = styled.img`
 `;
 
 const Info = styled.div`
-  padding: 12px 7px 16px 0px;
+  padding: 12px 7px 16px 0;
 `;
 
 const Title = styled.span`
@@ -37,9 +38,14 @@ const Review = styled.p`
   font-size: 0.875rem;
 `;
 
-export default function ListItem({ place }) {
+export default function ListItem({ place, onOpenModal }) {
+  const openModal = () => {
+    onOpenModal(place);
+    openPlaceInfoModal();
+  };
+
   return (
-    <Container>
+    <Container onClick={openModal}>
       <Thumbnail src={place.photo} />
       <Info>
         <Title>{place.name}</Title>
