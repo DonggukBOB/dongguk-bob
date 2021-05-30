@@ -63,7 +63,7 @@ const FoodImg = styled.img`
 const ButtonContainer = styled.div`
   display: flex;
   margin: 10px 0;
-  padding: 0 15px 20px;
+  padding: 0 5px 20px;
   justify-content: space-between;
   text-align: center;
   border-bottom: 1px solid #9b9b9b;
