@@ -83,6 +83,11 @@ const MapImg = styled.img`
   width: 100%;
 `;
 
+const LinkDescription = styled.div`
+  font-size: 0.85rem;
+  white-space: nowrap;
+`;
+
 const InfoContainer = styled.div`
   margin: 10px 0;
   padding: 0 15px 10px;
@@ -195,13 +200,13 @@ export default function PlaceInfoModal({
               <ImgContainer>
                 <MapImg src={naverMapImg} />
               </ImgContainer>
-              <div>네이버 지도</div>
+              <LinkDescription>네이버 지도</LinkDescription>
             </LinkContainer>
             <LinkContainer href={place.kakao} target="_blank" rel="noreferrer">
               <ImgContainer>
                 <MapImg src={kakaoMapImg} />
               </ImgContainer>
-              <div>카카오 지도</div>
+              <LinkDescription>카카오 지도</LinkDescription>
             </LinkContainer>
             <LinkContainer
               href={"tel:" + place.phone}
@@ -211,7 +216,7 @@ export default function PlaceInfoModal({
               <ImgContainer>
                 <i className="fa fa-phone fa-3x" aria-hidden="true" />
               </ImgContainer>
-              <div>전화</div>
+              <LinkDescription>전화</LinkDescription>
             </LinkContainer>
           </ButtonContainer>
           <InfoContainer>
