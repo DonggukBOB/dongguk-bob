@@ -139,12 +139,12 @@ const PreviousButton = styled.button`
 
 export const openPlaceInfoModal = () => {
   $(".place-info-modal-container").show();
-  $(".place-info-modal").animate({ height: "show" });
+  $(".place-info-modal").animate({ height: "show" }, { duration: 200 });
 };
 
 export const closePlaceInfoModal = () => {
-  $(".place-info-modal").animate({ height: "hide" });
-  setTimeout(() => $(".place-info-modal-container").hide(), 400);
+  $(".place-info-modal").animate({ height: "hide" }, { duration: 200 });
+  setTimeout(() => $(".place-info-modal-container").hide(), 210);
 };
 
 export default function PlaceInfoModal({
