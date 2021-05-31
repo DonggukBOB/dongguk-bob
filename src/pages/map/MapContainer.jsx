@@ -27,21 +27,28 @@ export default function MapContainer() {
           el.location.longitude
         ),
         title: el.name,
+        clickable: true,
       });
 
-      var infowindow = new kakao.maps.InfoWindow({
+      const infowindow = new kakao.maps.InfoWindow({
+        map: map,
+        position: new kakao.maps.LatLng(
+          el.location.latitude + 0.00033,
+          el.location.longitude
+        ),
         content: el.name,
       });
 
+      function makeClickListener(map) {
+        return function () {
+          console.log(map.location, "Clicked");
+        };
+      }
+
       kakao.maps.event.addListener(
         marker,
-        "mouseover",
-        makeOverListener(map, marker, infowindow)
-      );
-      kakao.maps.event.addListener(
-        marker,
-        "mouseout",
-        makeOutListener(infowindow)
+        "click",
+        makeClickListener(map, marker, infowindow)
       );
 
       function makeInfoWindow(map, marker, infowindow) {
@@ -51,18 +58,6 @@ export default function MapContainer() {
       }
       makeInfoWindow(map, marker, infowindow);
     });
-
-    function makeOverListener(map, marker, infowindow) {
-      return function () {
-        infowindow.open(map, marker);
-      };
-    }
-
-    function makeOutListener(infowindow) {
-      return function () {
-        infowindow.close();
-      };
-    }
   };
   return (
     <div
