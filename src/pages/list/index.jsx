@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import Header from "../../components/Header";
+import Filter from "../../components/Filter";
 import ListItem from "./ListItem";
 import PlaceInfoModal from "../../components/PlaceInfoModal";
 
@@ -16,6 +17,7 @@ export default function ListPage() {
   return (
     <>
       <Header />
+      <Filter />
       <ul>
         {places.map((place) => (
           <ListItem
