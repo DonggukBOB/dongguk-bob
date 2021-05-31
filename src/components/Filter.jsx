@@ -12,77 +12,90 @@ const FilterHeader = styled.div`
 const FilterButton = styled.button`
   padding: 8px 20px;
   font-size: 0.875rem;
-  color: #6a6a6a;
   border: 1px solid #cbcbcb;
   border-radius: 50px;
   background-color: #fff;
+  color: #6a6a6a;
+
   &:active {
-    border-color: #0078ff;
-    background-color: #0078ff;
+    border-color: #f29300;
+    background-color: #f29300;
     color: #fff;
   }
 `;
 
-const FilterBody = styled.div`
+const FilterItems = styled.div`
   display: none;
-  padding: 10px;
   background-color: #f9f9f9;
 `;
 
+const FilterItemButton = styled.button`
+  width: 50%;
+  padding: 15px;
+  border: none;
+  font-size: 0.875rem;
+
+  &:active {
+    border-color: #f29300;
+    background-color: #f29300;
+    color: #fff;
+  }
+`;
+
 export default function Filter() {
-  const LocationInfoBody = () => {
-    const displayValue = $(".location-info-Filter-container").css("display");
+  const LocationInfoItems = () => {
+    const displayValue = $(".location-filter-items").css("display");
     if (displayValue === "none") {
-      $(".filter-body").hide();
-      $(".location-info-Filter-container").show();
+      $(".filter-items").hide();
+      $(".location-filter-items").show();
     } else {
-      $(".location-info-Filter-container").hide();
+      $(".location-filter-items").hide();
     }
   };
 
-  const PriceInfoBody = () => {
-    const displayValue = $(".price-info-Filter-container").css("display");
+  const PriceInfoItems = () => {
+    const displayValue = $(".price-filter-items").css("display");
     if (displayValue === "none") {
-      $(".filter-body").hide();
-      $(".price-info-Filter-container").show();
+      $(".filter-items").hide();
+      $(".price-filter-items").show();
     } else {
-      $(".price-info-Filter-container").hide();
+      $(".price-filter-items").hide();
     }
   };
 
-  const CategoryInfoBody = () => {
-    const displayValue = $(".category-info-Filter-container").css("display");
+  const CategoryInfoItems = () => {
+    const displayValue = $(".category-filter-items").css("display");
     if (displayValue === "none") {
-      $(".filter-body").hide();
-      $(".category-info-Filter-container").show();
+      $(".filter-items").hide();
+      $(".category-filter-items").show();
     } else {
-      $(".category-info-Filter-container").hide();
+      $(".category-filter-items").hide();
     }
   };
 
   return (
     <>
       <FilterHeader>
-        <FilterButton onClick={LocationInfoBody}>위치</FilterButton>
-        <FilterButton onClick={PriceInfoBody}>가격대</FilterButton>
-        <FilterButton onClick={CategoryInfoBody}>카테고리</FilterButton>
+        <FilterButton onClick={LocationInfoItems}>위치</FilterButton>
+        <FilterButton onClick={PriceInfoItems}>가격대</FilterButton>
+        <FilterButton onClick={CategoryInfoItems}>카테고리</FilterButton>
       </FilterHeader>
-      <FilterBody className="location-info-Filter-container filter-body">
-        <div>동대입구역</div>
-        <div>충무로역</div>
-      </FilterBody>
-      <FilterBody className="price-info-Filter-container filter-body">
-        <div>6,000원 ~ 7,000원</div>
-        <div>7,000 ~ 8,000원</div>
-        <div>8,000 ~ 9,000원</div>
-        <div>9,000원 이상</div>
-      </FilterBody>
-      <FilterBody className="category-info-Filter-container filter-body">
-        <div>한식</div>
-        <div>양식</div>
-        <div>분식</div>
-        <div>중식</div>
-      </FilterBody>
+      <FilterItems className="filter-items location-filter-items">
+        <FilterItemButton>동대입구역</FilterItemButton>
+        <FilterItemButton>충무로역</FilterItemButton>
+      </FilterItems>
+      <FilterItems className="filter-items price-filter-items">
+        <FilterItemButton>6,000 ~ 7,000원</FilterItemButton>
+        <FilterItemButton>7,000 ~ 8,000원</FilterItemButton>
+        <FilterItemButton>8,000 ~ 9,000원</FilterItemButton>
+        <FilterItemButton>9,000원 이상</FilterItemButton>
+      </FilterItems>
+      <FilterItems className="filter-items category-filter-items">
+        <FilterItemButton>한식</FilterItemButton>
+        <FilterItemButton>양식</FilterItemButton>
+        <FilterItemButton>분식</FilterItemButton>
+        <FilterItemButton>중식</FilterItemButton>
+      </FilterItems>
     </>
   );
 }
