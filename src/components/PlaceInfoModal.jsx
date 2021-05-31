@@ -44,12 +44,13 @@ const ExitButton = styled.i`
 const Title = styled.h1`
   display: inline;
   margin-right: 10px;
+  white-space: nowrap;
 `;
 
 const Score = styled.span`
-  margin-left: 10px;
   font-size: 1.25rem;
   color: #ff792a;
+  white-space: nowrap;
 `;
 
 const FoodImg = styled.img`
@@ -62,7 +63,7 @@ const FoodImg = styled.img`
 const ButtonContainer = styled.div`
   display: flex;
   margin: 10px 0;
-  padding: 0 15px 20px;
+  padding: 0 5px 20px;
   justify-content: space-between;
   text-align: center;
   border-bottom: 1px solid #9b9b9b;
@@ -80,6 +81,11 @@ const ImgContainer = styled.div`
 
 const MapImg = styled.img`
   width: 100%;
+`;
+
+const LinkDescription = styled.div`
+  font-size: 0.85rem;
+  white-space: nowrap;
 `;
 
 const InfoContainer = styled.div`
@@ -185,7 +191,6 @@ export default function PlaceInfoModal({
               onClick={closeModal}
             />
             <Title>{place.name}</Title>
-            <span className="gray">{place.category}</span>
             <Score>★ {place.score}/5</Score>
             <div className="gray">{place.address}</div>
           </div>
@@ -195,13 +200,13 @@ export default function PlaceInfoModal({
               <ImgContainer>
                 <MapImg src={naverMapImg} />
               </ImgContainer>
-              <div>네이버 지도</div>
+              <LinkDescription>네이버 지도</LinkDescription>
             </LinkContainer>
             <LinkContainer href={place.kakao} target="_blank" rel="noreferrer">
               <ImgContainer>
                 <MapImg src={kakaoMapImg} />
               </ImgContainer>
-              <div>카카오 지도</div>
+              <LinkDescription>카카오 지도</LinkDescription>
             </LinkContainer>
             <LinkContainer
               href={"tel:" + place.phone}
@@ -211,7 +216,7 @@ export default function PlaceInfoModal({
               <ImgContainer>
                 <i className="fa fa-phone fa-3x" aria-hidden="true" />
               </ImgContainer>
-              <div>전화</div>
+              <LinkDescription>전화</LinkDescription>
             </LinkContainer>
           </ButtonContainer>
           <InfoContainer>
