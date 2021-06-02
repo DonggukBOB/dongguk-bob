@@ -10,7 +10,8 @@ const FilterHeader = styled.div`
 `;
 
 const FilterButton = styled.button`
-  padding: 8px 20px;
+  padding: 8px 10px;
+  width: 30%;
   font-size: 0.875rem;
   border: 1px solid #cbcbcb;
   border-radius: 50px;
@@ -34,43 +35,26 @@ const FilterItemButton = styled.button`
   padding: 15px;
   border: none;
   font-size: 0.875rem;
-
-  &:active {
-    border-color: #f29300;
-    background-color: #f29300;
-    color: #fff;
-  }
 `;
 
 export default function Filter() {
   const LocationInfoItems = () => {
-    const displayValue = $(".location-filter-items").css("display");
-    if (displayValue === "none") {
-      $(".filter-items").hide();
-      $(".location-filter-items").show();
-    } else {
-      $(".location-filter-items").hide();
-    }
+    $(".location-filter-items").css("background-color", "#f29300");
+    $(".location-filter-items").toggle();
+    $(".price-filter-items").hide();
+    $(".category-filter-items").hide();
   };
 
   const PriceInfoItems = () => {
-    const displayValue = $(".price-filter-items").css("display");
-    if (displayValue === "none") {
-      $(".filter-items").hide();
-      $(".price-filter-items").show();
-    } else {
-      $(".price-filter-items").hide();
-    }
+    $(".price-filter-items").toggle();
+    $(".location-filter-items").hide();
+    $(".category-filter-items").hide();
   };
 
   const CategoryInfoItems = () => {
-    const displayValue = $(".category-filter-items").css("display");
-    if (displayValue === "none") {
-      $(".filter-items").hide();
-      $(".category-filter-items").show();
-    } else {
-      $(".category-filter-items").hide();
-    }
+    $(".category-filter-items").toggle();
+    $(".price-filter-items").hide();
+    $(".location-filter-items").hide();
   };
 
   return (
@@ -85,16 +69,18 @@ export default function Filter() {
         <FilterItemButton>충무로역</FilterItemButton>
       </FilterItems>
       <FilterItems className="filter-items price-filter-items">
-        <FilterItemButton>6,000 ~ 7,000원</FilterItemButton>
-        <FilterItemButton>7,000 ~ 8,000원</FilterItemButton>
-        <FilterItemButton>8,000 ~ 9,000원</FilterItemButton>
-        <FilterItemButton>9,000원 이상</FilterItemButton>
+        <FilterItemButton>7,000원 이하</FilterItemButton>
+        <FilterItemButton>8,000원 이하</FilterItemButton>
+        <FilterItemButton>9,000원 이하</FilterItemButton>
+        <FilterItemButton>9,000원 초과</FilterItemButton>
       </FilterItems>
       <FilterItems className="filter-items category-filter-items">
         <FilterItemButton>한식</FilterItemButton>
         <FilterItemButton>양식</FilterItemButton>
         <FilterItemButton>분식</FilterItemButton>
         <FilterItemButton>중식</FilterItemButton>
+        <FilterItemButton>일식</FilterItemButton>
+        <FilterItemButton>기타</FilterItemButton>
       </FilterItems>
     </>
   );
