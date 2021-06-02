@@ -1,5 +1,6 @@
 const places = [
   {
+    id: 0,
     name: "진땡이 순대국",
     category: "한식",
     phone: "02-2263-8441",
@@ -18,6 +19,7 @@ const places = [
     kakao: "https://place.map.kakao.com/14519636",
   },
   {
+    id: 1,
     name: "동대닭한마리",
     category: "한식",
     phone: "02-2269-5596",
@@ -36,6 +38,7 @@ const places = [
     kakao: "https://place.map.kakao.com/25085251",
   },
   {
+    id: 2,
     name: "산타돈부리",
     category: "일식",
     phone: "0507-1348-8151",
