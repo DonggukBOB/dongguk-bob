@@ -10,7 +10,7 @@ import SlidingMenu from "./components/SlidingMenu";
 
 const Container = styled.div`
   max-width: 500px;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   margin: auto;
   box-shadow: 0 0 10px 2px gray;
   overflow-y: auto;
