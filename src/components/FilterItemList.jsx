@@ -28,14 +28,17 @@ export default function FilterItemList({ items, multi }) {
 
   const onClickItem = ({ target }) => {
     const item = target.innerText;
-    if (activeItems.includes(item)) {
-      const index = activeItems.indexOf(item);
-      activeItems.splice(index, 1);
-      setActiveItems([...activeItems]);
-      return;
-    }
+    activeItems.includes(item) ? inactivateItem(item) : activateItem(item);
+  };
 
+  const activateItem = (item) => {
     multi ? setActiveItems([item, ...activeItems]) : setActiveItems([item]);
+  };
+
+  const inactivateItem = (item) => {
+    const index = activeItems.indexOf(item);
+    activeItems.splice(index, 1);
+    setActiveItems([...activeItems]);
   };
 
   return (
