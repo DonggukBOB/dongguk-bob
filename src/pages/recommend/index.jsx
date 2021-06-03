@@ -7,7 +7,7 @@ import PlaceInfoModal, {
   openPlaceInfoModal,
 } from "../../components/PlaceInfoModal";
 
-import places from "../../data/places";
+import PLACES from "../../data/places";
 
 const Container = styled.div`
   display: flex;
@@ -28,22 +28,30 @@ const RecommendButton = styled.button`
 `;
 
 export default function RecommendPage() {
-  const [place, setPlace] = useState(places[0]);
+  const [place, setPlace] = useState(null);
   const [previousPlaces, setPreviousPlaces] = useState([]);
 
-  const recommendPlace = () => {
+  const recommendPlace = (places) => {
     return places[Math.floor(Math.random() * places.length)];
   };
 
   const openModal = () => {
-    setPlace(recommendPlace());
+    setPreviousPlaces([]);
+    setPlace(recommendPlace(PLACES));
     openPlaceInfoModal();
   };
 
   const retryRecommend = () => {
     previousPlaces.push(place);
+    const places = PLACES.filter((place) => !previousPlaces.includes(place));
+    const recommended = recommendPlace(places);
+    if (!recommended) {
+      alert("더 이상 추천할 가게가 없어요! T.T");
+      return;
+    }
+
     setPreviousPlaces(previousPlaces);
-    setPlace(recommendPlace());
+    setPlace(recommended);
   };
 
   const backPlace = () => {
@@ -51,6 +59,8 @@ export default function RecommendPage() {
     if (!previousPlace) {
       return;
     }
+
+    setPreviousPlaces(previousPlaces);
     setPlace(previousPlace);
   };
 
@@ -59,12 +69,14 @@ export default function RecommendPage() {
       <Header />
       <Filter />
       <RecommendButton onClick={openModal}>Go!</RecommendButton>
-      <PlaceInfoModal
-        place={place}
-        recommend
-        onRetry={retryRecommend}
-        onBackPlace={backPlace}
-      />
+      {place && (
+        <PlaceInfoModal
+          place={place}
+          recommend
+          onRetry={retryRecommend}
+          onBackPlace={backPlace}
+        />
+      )}
     </Container>
   );
 }
