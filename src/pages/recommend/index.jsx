@@ -34,14 +34,21 @@ export default function RecommendPage() {
   };
 
   const openModal = () => {
-    setPlace(recommendPlace());
+    setPreviousPlaces([]);
+    setPlace(recommendPlace(PLACES));
     openPlaceInfoModal();
   };
 
   const retryRecommend = () => {
     previousPlaces.push(place);
+    const places = PLACES.filter((place) => !previousPlaces.includes(place));
+    const recommended = recommendPlace(places);
+    if (!recommended) {
+      return;
+    }
+
     setPreviousPlaces(previousPlaces);
-    setPlace(recommendPlace());
+    setPlace(recommended);
   };
 
   const backPlace = () => {
@@ -49,6 +56,8 @@ export default function RecommendPage() {
     if (!previousPlace) {
       return;
     }
+
+    setPreviousPlaces(previousPlaces);
     setPlace(previousPlace);
   };
 
