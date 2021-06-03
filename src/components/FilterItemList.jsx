@@ -13,6 +13,7 @@ const inactiveStyle = css`
 
 const Container = styled.div`
   background: #f9f9f9;
+  border-bottom: 1px solid #dbdbdb;
 `;
 
 const FilterItem = styled.button`
