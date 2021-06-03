@@ -24,11 +24,17 @@ const FilterButton = styled.button`
 `;
 
 export default function FilterItemList({ items }) {
-  const [activeButton, setActiveButton] = useState(null);
+  const [activeButtons, setActiveButtons] = useState([]);
 
   const activateButton = ({ target }) => {
     const item = target.innerText;
-    item === activeButton ? setActiveButton(null) : setActiveButton(item);
+    if (!activeButtons.includes(item)) {
+      setActiveButtons([item, ...activeButtons]);
+      return;
+    }
+    const index = activeButtons.indexOf(item);
+    activeButtons.splice(index, 1);
+    setActiveButtons([...activeButtons]);
   };
 
   return (
@@ -36,7 +42,7 @@ export default function FilterItemList({ items }) {
       {items.map((item) => (
         <FilterButton
           key={item}
-          isActive={item === activeButton}
+          isActive={activeButtons.includes(item)}
           onClick={activateButton}
         >
           {item}
