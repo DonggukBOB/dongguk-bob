@@ -10,7 +10,7 @@ const FilterHeader = styled.div`
   justify-content: space-between;
 `;
 
-const FilterButton = styled.button`
+const FilterTypeButton = styled.button`
   padding: 8px 10px;
   width: 30%;
   font-size: 0.875rem;
@@ -87,15 +87,21 @@ export default function Filter() {
   return (
     <>
       <FilterHeader>
-        <FilterButton className="location-filter" onClick={openLocationItems}>
+        <FilterTypeButton
+          className="location-filter"
+          onClick={openLocationItems}
+        >
           위치
-        </FilterButton>
-        <FilterButton className="price-filter" onClick={openPriceItems}>
+        </FilterTypeButton>
+        <FilterTypeButton className="price-filter" onClick={openPriceItems}>
           가격대
-        </FilterButton>
-        <FilterButton className="category-filter" onClick={openCategoryItems}>
+        </FilterTypeButton>
+        <FilterTypeButton
+          className="category-filter"
+          onClick={openCategoryItems}
+        >
           카테고리
-        </FilterButton>
+        </FilterTypeButton>
       </FilterHeader>
       <FilterItem />
     </>
