@@ -13,16 +13,10 @@ const FilterButton = styled.button`
   padding: 8px 10px;
   width: 30%;
   font-size: 0.875rem;
-  border: 1px solid #cbcbcb;
   border-radius: 50px;
+  border: 1px solid #cbcbcb;
   background-color: #fff;
   color: #6a6a6a;
-
-  &:active {
-    border-color: #f29300;
-    background-color: #f29300;
-    color: #fff;
-  }
 `;
 
 const FilterItems = styled.div`
@@ -39,19 +33,63 @@ const FilterItemButton = styled.button`
 
 export default function Filter() {
   const LocationInfoItems = () => {
-    $(".location-filter-items").css("background-color", "#f29300");
+    $(".location-filter").css({
+      border: "#f29300",
+      background: "#f29300",
+      color: "#fff",
+    });
+    $(".price-filter").css({
+      border: "1px solid #cbcbcb",
+      background: "#fff",
+      color: "#6a6a6a",
+    });
+    $(".category-filter").css({
+      border: "1px solid #cbcbcb",
+      background: "#fff",
+      color: "#6a6a6a",
+    });
     $(".location-filter-items").toggle();
     $(".price-filter-items").hide();
     $(".category-filter-items").hide();
   };
 
   const PriceInfoItems = () => {
+    $(".price-filter").css({
+      border: "#f29300",
+      background: "#f29300",
+      color: "#fff",
+    });
+    $(".location-filter").css({
+      border: "1px solid #cbcbcb",
+      background: "#fff",
+      color: "#6a6a6a",
+    });
+    $(".category-filter").css({
+      border: "1px solid #cbcbcb",
+      background: "#fff",
+      color: "#6a6a6a",
+    });
     $(".price-filter-items").toggle();
     $(".location-filter-items").hide();
     $(".category-filter-items").hide();
   };
 
   const CategoryInfoItems = () => {
+    $(".category-filter").css({
+      border: "#f29300",
+      background: "#f29300",
+      color: "#fff",
+    });
+    $(".price-filter").css({
+      border: "1px solid #cbcbcb",
+      background: "#fff",
+      color: "#6a6a6a",
+    });
+    $(".location-filter").css({
+      border: "1px solid #cbcbcb",
+      background: "#fff",
+      color: "#6a6a6a",
+    });
     $(".category-filter-items").toggle();
     $(".price-filter-items").hide();
     $(".location-filter-items").hide();
@@ -60,21 +98,27 @@ export default function Filter() {
   return (
     <>
       <FilterHeader>
-        <FilterButton onClick={LocationInfoItems}>위치</FilterButton>
-        <FilterButton onClick={PriceInfoItems}>가격대</FilterButton>
-        <FilterButton onClick={CategoryInfoItems}>카테고리</FilterButton>
+        <FilterButton className="location-filter" onClick={LocationInfoItems}>
+          위치
+        </FilterButton>
+        <FilterButton className="price-filter" onClick={PriceInfoItems}>
+          가격대
+        </FilterButton>
+        <FilterButton className="category-filter" onClick={CategoryInfoItems}>
+          카테고리
+        </FilterButton>
       </FilterHeader>
-      <FilterItems className="filter-items location-filter-items">
+      <FilterItems className="location-filter-items">
         <FilterItemButton>동대입구역</FilterItemButton>
         <FilterItemButton>충무로역</FilterItemButton>
       </FilterItems>
-      <FilterItems className="filter-items price-filter-items">
+      <FilterItems className="price-filter-items">
         <FilterItemButton>7,000원 이하</FilterItemButton>
         <FilterItemButton>8,000원 이하</FilterItemButton>
         <FilterItemButton>9,000원 이하</FilterItemButton>
         <FilterItemButton>9,000원 초과</FilterItemButton>
       </FilterItems>
-      <FilterItems className="filter-items category-filter-items">
+      <FilterItems className="category-filter-items">
         <FilterItemButton>한식</FilterItemButton>
         <FilterItemButton>양식</FilterItemButton>
         <FilterItemButton>분식</FilterItemButton>
