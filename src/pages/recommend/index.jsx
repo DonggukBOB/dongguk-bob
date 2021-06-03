@@ -29,8 +29,8 @@ export default function RecommendPage() {
   const [place, setPlace] = useState(null);
   const [previousPlaces, setPreviousPlaces] = useState([]);
 
-  const recommendPlace = () => {
-    return PLACES[Math.floor(Math.random() * PLACES.length)];
+  const recommendPlace = (places) => {
+    return places[Math.floor(Math.random() * places.length)];
   };
 
   const openModal = () => {
