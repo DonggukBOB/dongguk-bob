@@ -44,6 +44,7 @@ export default function RecommendPage() {
     const places = PLACES.filter((place) => !previousPlaces.includes(place));
     const recommended = recommendPlace(places);
     if (!recommended) {
+      alert("더 이상 추천할 가게가 없어요! T.T");
       return;
     }
 
