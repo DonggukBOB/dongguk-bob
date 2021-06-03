@@ -23,18 +23,21 @@ const FilterButton = styled.button`
   ${({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
 `;
 
-export default function FilterItemList({ items }) {
+export default function FilterItemList({ items, multi }) {
   const [activeButtons, setActiveButtons] = useState([]);
 
   const activateButton = ({ target }) => {
     const item = target.innerText;
-    if (!activeButtons.includes(item)) {
-      setActiveButtons([item, ...activeButtons]);
+    if (activeButtons.includes(item)) {
+      const index = activeButtons.indexOf(item);
+      activeButtons.splice(index, 1);
+      setActiveButtons([...activeButtons]);
       return;
     }
-    const index = activeButtons.indexOf(item);
-    activeButtons.splice(index, 1);
-    setActiveButtons([...activeButtons]);
+
+    multi
+      ? setActiveButtons([item, ...activeButtons])
+      : setActiveButtons([item]);
   };
 
   return (
