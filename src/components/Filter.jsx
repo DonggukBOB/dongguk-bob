@@ -32,7 +32,7 @@ const FilterItemButton = styled.button`
 `;
 
 export default function Filter() {
-  const LocationInfoItems = () => {
+  const openLocationItems = () => {
     $(".location-filter").css({
       border: "#f29300",
       background: "#f29300",
@@ -53,7 +53,7 @@ export default function Filter() {
     $(".category-filter-items").hide();
   };
 
-  const PriceInfoItems = () => {
+  const openPriceItems = () => {
     $(".price-filter").css({
       border: "#f29300",
       background: "#f29300",
@@ -74,7 +74,7 @@ export default function Filter() {
     $(".category-filter-items").hide();
   };
 
-  const CategoryInfoItems = () => {
+  const openCategoryItems = () => {
     $(".category-filter").css({
       border: "#f29300",
       background: "#f29300",
@@ -98,13 +98,13 @@ export default function Filter() {
   return (
     <>
       <FilterHeader>
-        <FilterButton className="location-filter" onClick={LocationInfoItems}>
+        <FilterButton className="location-filter" onClick={openLocationItems}>
           위치
         </FilterButton>
-        <FilterButton className="price-filter" onClick={PriceInfoItems}>
+        <FilterButton className="price-filter" onClick={openPriceItems}>
           가격대
         </FilterButton>
-        <FilterButton className="category-filter" onClick={CategoryInfoItems}>
+        <FilterButton className="category-filter" onClick={openCategoryItems}>
           카테고리
         </FilterButton>
       </FilterHeader>
