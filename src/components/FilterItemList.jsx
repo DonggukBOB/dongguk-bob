@@ -15,7 +15,7 @@ const Container = styled.div`
   background: #f9f9f9;
 `;
 
-const FilterButton = styled.button`
+const FilterItem = styled.button`
   width: 50%;
   padding: 15px;
   border: none;
@@ -24,32 +24,30 @@ const FilterButton = styled.button`
 `;
 
 export default function FilterItemList({ items, multi }) {
-  const [activeButtons, setActiveButtons] = useState([]);
+  const [activeItems, setActiveItems] = useState([]);
 
-  const activateButton = ({ target }) => {
+  const onClickItem = ({ target }) => {
     const item = target.innerText;
-    if (activeButtons.includes(item)) {
-      const index = activeButtons.indexOf(item);
-      activeButtons.splice(index, 1);
-      setActiveButtons([...activeButtons]);
+    if (activeItems.includes(item)) {
+      const index = activeItems.indexOf(item);
+      activeItems.splice(index, 1);
+      setActiveItems([...activeItems]);
       return;
     }
 
-    multi
-      ? setActiveButtons([item, ...activeButtons])
-      : setActiveButtons([item]);
+    multi ? setActiveItems([item, ...activeItems]) : setActiveItems([item]);
   };
 
   return (
     <Container>
       {items.map((item) => (
-        <FilterButton
+        <FilterItem
           key={item}
-          isActive={activeButtons.includes(item)}
-          onClick={activateButton}
+          isActive={activeItems.includes(item)}
+          onClick={onClickItem}
         >
           {item}
-        </FilterButton>
+        </FilterItem>
       ))}
     </Container>
   );
