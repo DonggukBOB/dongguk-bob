@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import Header from "../../components/Header";
+import Filter from "../../components/Filter";
 import PlaceInfoModal, {
   openPlaceInfoModal,
 } from "../../components/PlaceInfoModal";
@@ -56,6 +57,7 @@ export default function RecommendPage() {
   return (
     <Container>
       <Header />
+      <Filter />
       <RecommendButton onClick={openModal}>Go!</RecommendButton>
       <PlaceInfoModal
         place={place}
