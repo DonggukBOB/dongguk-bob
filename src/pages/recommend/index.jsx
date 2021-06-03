@@ -26,7 +26,7 @@ const RecommendButton = styled.button`
 `;
 
 export default function RecommendPage() {
-  const [place, setPlace] = useState(PLACES[0]);
+  const [place, setPlace] = useState(null);
   const [previousPlaces, setPreviousPlaces] = useState([]);
 
   const recommendPlace = () => {
@@ -57,12 +57,14 @@ export default function RecommendPage() {
       <Header />
       <Filter />
       <RecommendButton onClick={openModal}>Go!</RecommendButton>
-      <PlaceInfoModal
-        place={place}
-        recommend
-        onRetry={retryRecommend}
-        onBackPlace={backPlace}
-      />
+      {place && (
+        <PlaceInfoModal
+          place={place}
+          recommend
+          onRetry={retryRecommend}
+          onBackPlace={backPlace}
+        />
+      )}
     </Container>
   );
 }
