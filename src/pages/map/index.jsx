@@ -31,6 +31,7 @@ export default function MapPage() {
       $kakao.drawMarker(place.location);
       $kakao.addClickEventToMarker(place, openOverlay);
     });
+    $kakao.drawCurrentLocationMarker();
   }, []);
 
   const openOverlay = (id) => {

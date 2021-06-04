@@ -1,3 +1,4 @@
+import currentLocationImage from "../../assets/current-location-image.png";
 const { kakao } = window;
 
 const $kakao = (() => {
@@ -36,9 +37,34 @@ const $kakao = (() => {
     });
   };
 
+  const drawCurrentLocationMarker = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      const currentPosition = new kakao.maps.LatLng(lat, lon);
+
+      const imageSrc = currentLocationImage;
+      const imageSize = new kakao.maps.Size(36, 36);
+      const imageOption = { offset: new kakao.maps.Point(18, 18) };
+      const currentMarkerImage = new kakao.maps.MarkerImage(
+        imageSrc,
+        imageSize,
+        imageOption
+      );
+      const marker = new kakao.maps.Marker({
+        map: map,
+        position: currentPosition,
+        image: currentMarkerImage,
+      });
+      marker.setMap(map);
+      map.setCenter(currentPosition);
+    });
+  };
+
   return {
     initMap,
     drawMarker,
+    drawCurrentLocationMarker,
     addClickEventToMarker,
   };
 })();
