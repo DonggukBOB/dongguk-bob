@@ -44,8 +44,8 @@ const $kakao = (() => {
       var currentPosition = new kakao.maps.LatLng(lat, lon);
 
       var imageSrc = currentLocationImage;
-      var imageSize = new kakao.maps.Size(48, 48);
-      var imageOption = { offset: new kakao.maps.Point(24, 24) };
+      var imageSize = new kakao.maps.Size(36, 36);
+      var imageOption = { offset: new kakao.maps.Point(18, 18) };
       var currentMarkerImage = new kakao.maps.MarkerImage(
         imageSrc,
         imageSize,
