@@ -1,3 +1,4 @@
+import currentLocationImage from "../../assets/elephant.png";
 const { kakao } = window;
 
 const $kakao = (() => {
@@ -36,9 +37,34 @@ const $kakao = (() => {
     });
   };
 
+  const drawCurrentLocationMarker = () => {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      var lat = position.coords.latitude;
+      var lon = position.coords.longitude;
+      var currentPosition = new kakao.maps.LatLng(lat, lon);
+
+      var imageSrc = currentLocationImage;
+      var imageSize = new kakao.maps.Size(48, 48);
+      var imageOption = { offset: new kakao.maps.Point(24, 24) };
+      var currentMarkerImage = new kakao.maps.MarkerImage(
+        imageSrc,
+        imageSize,
+        imageOption
+      );
+      var marker = new kakao.maps.Marker({
+        map: map,
+        position: currentPosition,
+        image: currentMarkerImage,
+      });
+      marker.setMap(map);
+      map.setCenter(currentPosition);
+    });
+  };
+
   return {
     initMap,
     drawMarker,
+    drawCurrentLocationMarker,
     addClickEventToMarker,
   };
 })();
