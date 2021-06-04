@@ -5,10 +5,10 @@ import Filter from "../../components/Filter";
 import ListItem from "./ListItem";
 import PlaceInfoModal from "../../components/PlaceInfoModal";
 
-import places from "../../data/places";
+import PLACES from "../../data/PLACES";
 
 export default function ListPage() {
-  const [place, setPlace] = useState(places[0]);
+  const [place, setPlace] = useState(PLACES[0]);
 
   const openInfoModal = (selected) => {
     setPlace(selected);
@@ -19,12 +19,8 @@ export default function ListPage() {
       <Header />
       <Filter />
       <ul>
-        {places.map((place) => (
-          <ListItem
-            key={place.name}
-            place={place}
-            onOpenModal={openInfoModal}
-          />
+        {PLACES.map((place) => (
+          <ListItem key={place.id} place={place} onOpenModal={openInfoModal} />
         ))}
       </ul>
       <PlaceInfoModal place={place} />
