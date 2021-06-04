@@ -7,7 +7,7 @@ import PlaceInfoModal, {
   openPlaceInfoModal,
 } from "../../components/PlaceInfoModal";
 
-import places from "../../data/places";
+import PLACES from "../../data/PLACES";
 
 const Container = styled.div`
   display: flex;
@@ -28,11 +28,11 @@ const RecommendButton = styled.button`
 `;
 
 export default function RecommendPage() {
-  const [place, setPlace] = useState(places[0]);
+  const [place, setPlace] = useState(PLACES[0]);
   const [previousPlaces, setPreviousPlaces] = useState([]);
 
   const recommendPlace = () => {
-    return places[Math.floor(Math.random() * places.length)];
+    return PLACES[Math.floor(Math.random() * PLACES.length)];
   };
 
   const openModal = () => {
@@ -41,7 +41,7 @@ export default function RecommendPage() {
   };
 
   const retryRecommend = () => {
-    previousPlaces.push(place);
+    previousPlaces.push(PLACES);
     setPreviousPlaces(previousPlaces);
     setPlace(recommendPlace());
   };

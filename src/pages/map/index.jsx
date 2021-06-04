@@ -7,7 +7,7 @@ import PlaceInfoModal, {
 } from "../../components/PlaceInfoModal";
 
 import $kakao from "./kakao-map.js";
-import places from "../../data/places.js";
+import PLACES from "../../data/PLACES.js";
 
 const Container = styled.div`
   display: flex;
@@ -27,14 +27,14 @@ export default function MapPage() {
 
   useEffect(() => {
     $kakao.initMap("kakao-map");
-    places.map((place) => {
+    PLACES.map((place) => {
       $kakao.drawMarker(place.location);
       $kakao.addClickEventToMarker(place, openOverlay);
     });
   }, []);
 
   const openOverlay = (id) => {
-    setPlace(places[id]);
+    setPlace(PLACES[id]);
     setIsOverlayActive(true);
     openPlaceInfoModal();
   };
