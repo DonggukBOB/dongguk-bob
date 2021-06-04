@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-
 import Header from "../../components/Header";
 import Filter from "../../components/Filter";
 import PlaceInfoModal, {
   openPlaceInfoModal,
 } from "../../components/PlaceInfoModal";
-
 import PLACES from "../../data/PLACES";
 
 const Container = styled.div`
@@ -41,7 +39,7 @@ export default function RecommendPage() {
   };
 
   const retryRecommend = () => {
-    previousPlaces.push(PLACES);
+    previousPlaces.push(place);
     setPreviousPlaces(previousPlaces);
     setPlace(recommendPlace());
   };
