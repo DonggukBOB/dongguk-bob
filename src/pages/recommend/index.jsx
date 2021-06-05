@@ -7,7 +7,7 @@ import PlaceInfoModal, {
   openPlaceInfoModal,
 } from "../../components/PlaceInfoModal";
 
-import PLACES from "../../data/PLACES";
+import PLACES from "../../data/places.js";
 
 const Container = styled.div`
   display: flex;
