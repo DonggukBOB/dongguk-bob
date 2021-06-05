@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AAAA,EACE,QAAS,CACT,SACF,CAEA,EACE,oBAAqB,CACrB,UACF,CAEA,MACE,aACF,CAEA,aACE,WACF","file":"main.844650f2.chunk.css","sourcesContent":["* {\n  margin: 0;\n  padding: 0;\n}\n\na {\n  text-decoration: none;\n  color: black;\n}\n\n.gray {\n  color: #9b9b9b;\n}\n\n.float-right {\n  float: right;\n}\n"]}
