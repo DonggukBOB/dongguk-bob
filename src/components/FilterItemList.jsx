@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
+
+import $filter from "../filter";
 
 const activeStyle = css`
   background: #f29300;
@@ -25,11 +27,25 @@ const FilterItem = styled.button`
   ${({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
 `;
 
-export default function FilterItemList({ items, multi, isActive }) {
+export default function FilterItemList({
+  isActive,
+  type,
+  items,
+  multi,
+  method,
+  onChangeFilter,
+}) {
   const [activeItems, setActiveItems] = useState([]);
 
-  const onClickItem = ({ target }) => {
-    const item = target.innerText;
+  useEffect(() => {
+    $filter.clear(type);
+    activeItems.forEach(({ value }) =>
+      $filter.push(type, (place) => method(place, value))
+    );
+    onChangeFilter();
+  }, [activeItems]);
+
+  const onClickItem = (item) => {
     activeItems.includes(item) ? inactivateItem(item) : activateItem(item);
   };
 
@@ -47,11 +63,11 @@ export default function FilterItemList({ items, multi, isActive }) {
     <Container isActive={isActive}>
       {items.map((item) => (
         <FilterItem
-          key={item}
+          key={item.value}
           isActive={activeItems.includes(item)}
-          onClick={onClickItem}
+          onClick={() => onClickItem(item)}
         >
-          {item}
+          {item.text}
         </FilterItem>
       ))}
     </Container>
