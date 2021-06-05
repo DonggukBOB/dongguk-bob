@@ -12,6 +12,7 @@ const inactiveStyle = css`
 `;
 
 const Container = styled.div`
+  display: ${({ isActive }) => (isActive ? "" : "none")};
   background: #f9f9f9;
   border-bottom: 1px solid #dbdbdb;
 `;
@@ -24,7 +25,7 @@ const FilterItem = styled.button`
   ${({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
 `;
 
-export default function FilterItemList({ items, multi }) {
+export default function FilterItemList({ items, multi, isActive }) {
   const [activeItems, setActiveItems] = useState([]);
 
   const onClickItem = ({ target }) => {
@@ -43,7 +44,7 @@ export default function FilterItemList({ items, multi }) {
   };
 
   return (
-    <Container>
+    <Container isActive={isActive}>
       {items.map((item) => (
         <FilterItem
           key={item}

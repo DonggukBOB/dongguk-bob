@@ -52,9 +52,14 @@ export default function Filter() {
           />
         ))}
       </FilterHeader>
-      {activeFilter && (
-        <FilterItemList items={activeFilter.items} multi={activeFilter.multi} />
-      )}
+      {FILTERS.map(({ name, items, multi }) => (
+        <FilterItemList
+          key={name}
+          items={items}
+          multi={multi}
+          isActive={name === activeFilter?.name}
+        />
+      ))}
     </>
   );
 }
