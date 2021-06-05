@@ -270,8 +270,8 @@ const PLACES = [
     phone: "02-2278-2777",
     address: "서울 중구 서애로1길 12-1",
     location: {
-      latitude: 37.561434658460165,
-      longitude: 126.99852503883947,
+      latitude: 37.56094859058187,
+      longitude: 126.99875443953724,
     },
     comment:
       "동국인들의 든든한 한끼식사, 구수함에 빠져보고 싶다면 이리 오시길 ",
@@ -431,8 +431,8 @@ const PLACES = [
     phone: "02-2266-6332",
     address: "서울 중구 퇴계로42길 8",
     location: {
-      latitude: 37.5628148242648,
-      longitude: 126.99682791921087,
+      latitude: 37.5614304377427,
+      longitude: 126.99663563484911,
     },
     comment: "와썹맨 을지로편 출연, 가성비 넘치는 보쌈정식",
     menu: "보쌈정식",

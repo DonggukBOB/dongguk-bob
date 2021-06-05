@@ -5,7 +5,7 @@ import Filter from "../../components/Filter";
 import ListItem from "./ListItem";
 import PlaceInfoModal from "../../components/PlaceInfoModal";
 
-import PLACES from "../../data/PLACES";
+import PLACES from "../../data/places.js";
 
 export default function ListPage() {
   const [place, setPlace] = useState(PLACES[0]);
