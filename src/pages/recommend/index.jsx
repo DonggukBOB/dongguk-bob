@@ -44,7 +44,7 @@ export default function RecommendPage() {
       alert("추천할 가게가 없어요! T.T");
       return;
     }
-    setPlace();
+    setPlace(recommended);
     openPlaceInfoModal();
   };
 
