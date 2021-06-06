@@ -42,7 +42,7 @@ export default function FilterItemList({
     activeItems.forEach(({ value }) =>
       $filter.push(type, (place) => method(place, value))
     );
-    onChangeFilter();
+    onChangeFilter && onChangeFilter();
   }, [activeItems]);
 
   const onClickItem = (item) => {
