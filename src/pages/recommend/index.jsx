@@ -39,7 +39,12 @@ export default function RecommendPage() {
   const openModal = () => {
     setPreviousPlaces([]);
     const filteredPlaces = $filter.apply(PLACES);
-    setPlace(recommendPlace(filteredPlaces));
+    const recommended = recommendPlace(filteredPlaces);
+    if (!recommended) {
+      alert("추천할 가게가 없어요! T.T");
+      return;
+    }
+    setPlace();
     openPlaceInfoModal();
   };
 
