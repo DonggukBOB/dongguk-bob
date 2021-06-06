@@ -8,6 +8,7 @@ import PlaceInfoModal, {
 } from "../../components/PlaceInfoModal";
 
 import PLACES from "../../data/places.js";
+import $filter from "../../filter";
 
 const Container = styled.div`
   display: flex;
@@ -37,13 +38,17 @@ export default function RecommendPage() {
 
   const openModal = () => {
     setPreviousPlaces([]);
-    setPlace(recommendPlace(PLACES));
+    const filteredPlaces = $filter.apply(PLACES);
+    setPlace(recommendPlace(filteredPlaces));
     openPlaceInfoModal();
   };
 
   const retryRecommend = () => {
     previousPlaces.push(place);
-    const places = PLACES.filter((place) => !previousPlaces.includes(place));
+    const filteredPlaces = $filter.apply(PLACES);
+    const places = filteredPlaces.filter(
+      (place) => !previousPlaces.includes(place)
+    );
     const recommended = recommendPlace(places);
     if (!recommended) {
       alert("더 이상 추천할 가게가 없어요! T.T");
