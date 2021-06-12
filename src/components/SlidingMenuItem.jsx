@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-import $ from "jquery";
+import { closeSlidingMenu } from "./SlidingMenu";
 
 const Item = styled.div`
   padding: 20px;
@@ -15,8 +15,7 @@ export default function SlidingMenuItem({ contents, to }) {
 
   const link = () => {
     history.push(to);
-    $(".sliding-menu").animate({ width: "toggle" });
-    setTimeout(() => $(".sliding-menu-container").hide(), 400);
+    closeSlidingMenu();
   };
 
   return <Item onClick={link}>{contents}</Item>;

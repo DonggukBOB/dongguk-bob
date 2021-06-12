@@ -29,11 +29,20 @@ const ExitButton = styled.i`
   margin-right: auto;
 `;
 
+export const openSlidingMenu = () => {
+  $(".sliding-menu-container").show();
+  $(".sliding-menu").animate({ width: "show" });
+};
+
+export const closeSlidingMenu = () => {
+  $(".sliding-menu").animate({ width: "hide" }, { duration: 200 });
+  setTimeout(() => $(".sliding-menu-container").hide(), 400);
+};
+
 export default function SlidingMenu() {
   const closeMenu = (event) => {
     event.stopPropagation();
-    $(".sliding-menu").animate({ width: "toggle" });
-    setTimeout(() => $(".sliding-menu-container").hide(), 400);
+    closeSlidingMenu();
   };
 
   const stopPropagation = (event) => {

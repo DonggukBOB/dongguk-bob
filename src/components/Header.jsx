@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
-import $ from "jquery";
+import { openSlidingMenu } from "./SlidingMenu";
 
 const Container = styled.header`
   display: flex;
@@ -18,11 +18,6 @@ export default function Header() {
     history.goBack();
   };
 
-  const openMenu = () => {
-    $(".sliding-menu-container").show();
-    $(".sliding-menu").animate({ width: "toggle" });
-  };
-
   return (
     <Container className="header">
       <i
@@ -33,7 +28,11 @@ export default function Header() {
       <Link to="/">
         <h3>동국밥</h3>
       </Link>
-      <i className="fa fa-bars fa-lg" aria-hidden="true" onClick={openMenu} />
+      <i
+        className="fa fa-bars fa-lg"
+        aria-hidden="true"
+        onClick={openSlidingMenu}
+      />
     </Container>
   );
 }
