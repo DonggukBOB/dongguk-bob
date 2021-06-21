@@ -17,7 +17,9 @@ const Container = styled.div`
 `;
 
 const RecommendButton = styled.button`
-  margin: auto;
+  position: fixed;
+  top: calc(50% - 1em);
+  left: calc(50% - 1.25em);
   width: 2.5em;
   height: 2.5em;
   border: none;
