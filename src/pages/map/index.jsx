@@ -7,7 +7,7 @@ import PlaceInfoModal, {
 } from "../../components/PlaceInfoModal";
 
 import $kakao from "./kakao-map.js";
-import PLACES from "../../data/places.js";
+import { PLACES } from "../../data";
 
 const Container = styled.div`
   display: flex;

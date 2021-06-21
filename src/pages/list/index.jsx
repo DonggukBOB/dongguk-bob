@@ -5,7 +5,7 @@ import Filter from "../../components/Filter";
 import ListItem from "./ListItem";
 import PlaceInfoModal from "../../components/PlaceInfoModal";
 
-import PLACES from "../../data/places.js";
+import { PLACES } from "../../data";
 import $filter from "../../filter";
 
 export default function ListPage() {
