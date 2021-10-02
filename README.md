@@ -1,3 +1,3 @@
-### Demo
+# 동국밥
 
-https://donggukbob.github.io/dongguk-bob/
+- [DEMO](https://donggukbob.github.io/dongguk-bob/)
